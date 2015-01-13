@@ -37,12 +37,19 @@ fi
 # Load virtualenvwrapper into the shell session.
 if (( $+commands[virtualenvwrapper.sh] )); then
   # Set the directory where virtual environments are stored.
-  export WORKON_HOME="$HOME/.virtualenvs"
+  # export WORKON_HOME="$HOME/.virtualenvs"
+  export WORKON_HOME="$HOME/.pyenv/versions"
 
   # Disable the virtualenv prompt.
-  VIRTUAL_ENV_DISABLE_PROMPT=1
-
-  source "$commands[virtualenvwrapper.sh]"
+  VIRTUAL_ENV_DISABLE_PROMPT=0
+  if ! type pyenv | grep -q function; then # only once!
+    if [ -n "$commands[pyenv]" ] ; then
+      eval "$(pyenv init -)"
+      eval "$(pyenv virtualenv-init -)"
+    fi
+  fi
+  pyenv virtualenvwrapper
+  #source "$commands[pyenv] virtualenvwrapper"
 fi
 
 #
