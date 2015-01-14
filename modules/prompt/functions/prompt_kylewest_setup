@@ -23,9 +23,13 @@ function prompt_kylewest_precmd {
     git-info
   fi
 
-  # Get Ruby information.
-  if (( $+functions[ruby-info] )); then
-    ruby-info
+  ## Get Ruby information.
+  #if (( $+functions[ruby-info] )); then
+    #ruby-info
+  #fi
+
+  if (( $+functions[python-info] )); then
+    python-info
   fi
 }
 
@@ -54,12 +58,16 @@ function prompt_kylewest_setup {
   zstyle ':prezto:module:git:info:untracked' format ' '
   zstyle ':prezto:module:git:info:keys' format 'prompt' '- %b%D '
 
-  # Set ruby-info parameters.
-  zstyle ':prezto:module:ruby:info:version' format '%F{blue}[%v]%f'
+  ## Set ruby-info parameters.
+  #zstyle ':prezto:module:ruby:info:version' format '%F{blue}[%v]%f'
+
+  # Set python-info parameters.
+  zstyle ':prezto:module:python:info:virtualenv' format '(%v)'
 
   # Define prompts.
   PROMPT='%F{cyan}%c%f ${git_info:+${(e)git_info[prompt]}}${editor_info[keymap]} '
-  RPROMPT='${ruby_info[version]}'
+  #RPROMPT='${ruby_info[version]}'
+  RPROMPT='${python_info[virtualenv]}'
 }
 
 prompt_kylewest_setup "$@"
