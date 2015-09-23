@@ -11,3 +11,12 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+#source /Users/chrism/.pyenv/versions/2.7.9/bin/activate.sh
+#export PATH="/Users/chrism/anaconda/bin:$PATH"
+#if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/modules/conda-zsh-completion/_conda" ]]; then
+#	fpath+="${ZDOTDIR:-$HOME}/.zprezto/modules/conda-zsh-completion"
+#	compinit conda
+#fi
+export DOCKER_HOST=tcp://192.168.59.103:2376
+export DOCKER_CERT_PATH=/Users/chrism/.boot2docker/certs/boot2docker-vm
+export DOCKER_TLS_VERIFY=1
