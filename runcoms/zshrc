@@ -9,13 +9,15 @@
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
-
 # Customize to your needs...
-#source /Users/chrism/.pyenv/versions/2.7.9/bin/activate.sh
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 #export PATH="/Users/chrism/anaconda/bin:$PATH"
-#if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/modules/conda-zsh-completion/_conda" ]]; then
-#	fpath+="${ZDOTDIR:-$HOME}/.zprezto/modules/conda-zsh-completion"
-#	compinit conda
-#fi
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/modules/conda-zsh-completion/_conda" ]]; then
+	fpath+="${ZDOTDIR:-$HOME}/.zprezto/modules/conda-zsh-completion"
+	compinit conda
+fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
