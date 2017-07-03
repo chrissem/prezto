@@ -21,3 +21,17 @@ fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+if (( $+commands[tag] )); then
+	tag() { command tag "$@"; source ${TAG_ALIAS_FILE:-/tmp/tag_aliases} 2>/dev/null }
+	alias ag=tag
+fi
+
+export PATH=~/.local/bin/:$PATH
+export AUTO_NTFY_DONE_LONGER_THAN=-L60
+export AUTO_NTFY_DONE_UNFOCUSED_ONLY=-b
+export AUTO_NTFY_DONE_IGNORE="vim screen tmux python ipython"
+#source "/Users/chrism/Library/Application Support/ntfy/auto-ntfy-done.sh"
+eval "$(thefuck --alias)"
+#eval "$(ntfy shell-integration)"
+source /Users/chrism/github/zaw/zaw.zsh
