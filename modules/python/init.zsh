@@ -90,16 +90,19 @@ if zstyle -T ':prezto:module:python' skip-virtualenvwrapper-init; then
 
   # Disable the virtualenv prompt.
   VIRTUAL_ENV_DISABLE_PROMPT=1
+  #eval "$(pyenv virtualenv-init -)"
+  pyenv virtualenvwrapper
 
-  if (( $+commands[pyenv-virtualenvwrapper] )); then
-    pyenv virtualenvwrapper
-  elif (( $+commands[pyenv-virtualenv-init] )); then
-    eval "$(pyenv virtualenv-init -)"
-  elif (( $+commands[virtualenvwrapper_lazy.sh] )); then
-    source "$commands[virtualenvwrapper_lazy.sh]"
-  elif (( $+commands[virtualenvwrapper.sh] )); then
-    source "$commands[virtualenvwrapper.sh]"
-  fi
+
+  #if (( $+commands[pyenv-virtualenvwrapper] )); then
+    #pyenv virtualenvwrapper
+  #elif (( $+commands[pyenv-virtualenv-init] )); then
+    #eval "$(pyenv virtualenv-init -)"
+  #elif (( $+commands[virtualenvwrapper_lazy.sh] )); then
+    #source "$commands[virtualenvwrapper_lazy.sh]"
+  #elif (( $+commands[virtualenvwrapper.sh] )); then
+    #source "$commands[virtualenvwrapper.sh]"
+  #fi
 fi
 
 # Load PIP completion.
